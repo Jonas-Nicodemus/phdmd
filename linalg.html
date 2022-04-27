@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>linalg package &mdash; pHDMD 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" type="text/css" />
+      <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+        <script src="_static/katex_autorenderer.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="model package" href="model.html" />
+    <link rel="prev" title="algorithm package" href="algorithm.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pHDMD
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html">algorithm package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">linalg package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-linalg.definiteness">linalg.definiteness module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-linalg.svd">linalg.svd module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-linalg.symmetric">linalg.symmetric module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-linalg">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">model package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html">system package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pHDMD</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+      <li>linalg package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/linalg.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linalg-package">
+<h1>linalg package<a class="headerlink" href="#linalg-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-linalg.definiteness">
+<span id="linalg-definiteness-module"></span><h2>linalg.definiteness module<a class="headerlink" href="#module-linalg.definiteness" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.definiteness.is_spsd">
+<span class="sig-prename descclassname"><span class="pre">linalg.definiteness.</span></span><span class="sig-name descname"><span class="pre">is_spsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.definiteness.is_spsd" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if a matrix is symmetric positive semi-definite.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>numpy.ndarray</em>) – The matrix to check for symmetric positive semi-definiteness.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>is_spsd</strong> (<em>bool</em>)</p></li>
+<li><p><cite>True</cite> if <cite>A</cite> is symmetric positive semi-definiteness, else <cite>False</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.definiteness.project_spsd">
+<span class="sig-prename descclassname"><span class="pre">linalg.definiteness.</span></span><span class="sig-name descname"><span class="pre">project_spsd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.definiteness.project_spsd" title="Permalink to this definition"></a></dt>
+<dd><p>Projects a matrix on the set of symmetric positive semi-definite matrices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>array_like</em>) – The matrix to project on the set of symmetric positive semi-definite matrices.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>A_spsd</strong> – The projected symmetric positive semi-definite matrix.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-linalg.svd">
+<span id="linalg-svd-module"></span><h2>linalg.svd module<a class="headerlink" href="#module-linalg.svd" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.svd.svd">
+<span class="sig-prename descclassname"><span class="pre">linalg.svd.</span></span><span class="sig-name descname"><span class="pre">svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hermitian</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variant</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.svd.svd" title="Permalink to this definition"></a></dt>
+<dd><p>Wrapper around <cite>numpy.svd</cite> to perform the four variants of the singular value decomposition
+(<a class="reference external" href="https://en.wikipedia.org/wiki/Singular_value_decomposition">https://en.wikipedia.org/wiki/Singular_value_decomposition</a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>numpy.ndarray</em>) – A real or complex matrix to perform the svd on.</p></li>
+<li><p><strong>hermitian</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, <cite>A</cite> is assumed to be Hermitian (symmetric if real-valued),
+enabling a more efficient method for finding singular values.
+Defaults to False.</p></li>
+<li><p><strong>variant</strong> (<em>str</em><em>, </em><em>optional</em>) – <p>Variant of the svd.  Should be one of</p>
+<blockquote>
+<div><ul>
+<li><p>’full’</p></li>
+<li><p>’thin’</p></li>
+<li><p>’skinny’</p></li>
+<li><p>’trunc’</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – In the case of ‘skinny’ the zero tolerance and in the case of ‘trunc’ the truncation tolerance.</p></li>
+<li><p><strong>t</strong> (<em>int</em><em>, </em><em>optional</em>) – In the case of ‘trunc’ the truncation index.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>U</strong> (<em>numpy.ndarray</em>) – Left singular vectors.</p></li>
+<li><p><strong>s</strong> (<em>numpy.ndarray</em>) – Singular values.</p></li>
+<li><p><strong>V</strong> (<em>numpy.ndarray</em>) – Right singular vectors.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-linalg.symmetric">
+<span id="linalg-symmetric-module"></span><h2>linalg.symmetric module<a class="headerlink" href="#module-linalg.symmetric" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.symmetric.is_skew">
+<span class="sig-prename descclassname"><span class="pre">linalg.symmetric.</span></span><span class="sig-name descname"><span class="pre">is_skew</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.symmetric.is_skew" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if a square matrix <cite>A</cite> is skew-symmetric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>numpy.ndarray</em>) – Square matrix.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>is_sym</strong> – <cite>True</cite> if <cite>A</cite> is skew-symmetric, else <cite>False</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.symmetric.is_sym">
+<span class="sig-prename descclassname"><span class="pre">linalg.symmetric.</span></span><span class="sig-name descname"><span class="pre">is_sym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rtol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.symmetric.is_sym" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if a square matrix <cite>A</cite> is symmetric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>numpy.ndarray</em>) – Square matrix.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>is_sym</strong> – <cite>True</cite> if <cite>A</cite> is symmetric, else <cite>False</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.symmetric.skew">
+<span class="sig-prename descclassname"><span class="pre">linalg.symmetric.</span></span><span class="sig-name descname"><span class="pre">skew</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.symmetric.skew" title="Permalink to this definition"></a></dt>
+<dd><p>Skew-symmetric part of a square matrix <cite>A</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>numpy.ndarray</em>) – Square matrix.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>N</strong> – Skew-symmetric part of <cite>A</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.symmetric.sym">
+<span class="sig-prename descclassname"><span class="pre">linalg.symmetric.</span></span><span class="sig-name descname"><span class="pre">sym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.symmetric.sym" title="Permalink to this definition"></a></dt>
+<dd><p>Symmetric part of a square matrix <cite>A</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>numpy.ndarray</em>) – Square matrix.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>S</strong> – Symmetric part of <cite>A</cite>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="linalg.symmetric.toeplitz">
+<span class="sig-prename descclassname"><span class="pre">linalg.symmetric.</span></span><span class="sig-name descname"><span class="pre">toeplitz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#linalg.symmetric.toeplitz" title="Permalink to this definition"></a></dt>
+<dd><p>Toeplitz decomposition.</p>
+<p>Returns the symmetric and skew-symmetric part,</p>
+<blockquote>
+<div><div class="math">
+\[S = \tfrac{1}{2} (A + A^T),\quad N = \tfrac{1}{2} (A - A^T)\]</div>
+</div></blockquote>
+<p>of a square matrix <span class="math">\(A\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>numpy.ndarray</em>) – Square matrix to split in symmetric and skew-symmetric part.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>S</strong> (<em>numpy.ndarray</em>) – Symmetric part of  <cite>A</cite>.</p></li>
+<li><p><strong>N</strong> (<em>numpy.ndarray</em>) – Skew-symmetric part of  <cite>A</cite>.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-linalg">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-linalg" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="algorithm.html" class="btn btn-neutral float-left" title="algorithm package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="model.html" class="btn btn-neutral float-right" title="model package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jonas Nicodemus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

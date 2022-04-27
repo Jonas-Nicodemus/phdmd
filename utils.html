@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils package &mdash; pHDMD 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" type="text/css" />
+      <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+        <script src="_static/katex_autorenderer.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="prev" title="system package" href="system.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> pHDMD
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html">algorithm package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html">linalg package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">model package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system.html">system package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils.norm">utils.norm module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils.plotting">utils.plotting module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-utils">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pHDMD</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">API Reference</a> &raquo;</li>
+      <li>utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="utils-package">
+<h1>utils package<a class="headerlink" href="#utils-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="module-utils.norm">
+<span id="utils-norm-module"></span><h2>utils.norm module<a class="headerlink" href="#module-utils.norm" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.norm.lnorm">
+<span class="sig-prename descclassname"><span class="pre">utils.norm.</span></span><span class="sig-name descname"><span class="pre">lnorm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.norm.lnorm" title="Permalink to this definition"></a></dt>
+<dd><p>Approximates the <span class="math">\(\mathcal{L}^p\)</span> norm for discrete values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Function values.</p></li>
+<li><p><strong>p</strong> (<em>int</em><em>, </em><em>optional</em>) – Order. Default 2.</p></li>
+<li><p><strong>tau</strong> (<em>float</em><em>, </em><em>optional</em>) – Stepsize. Default 1.0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>norm</strong> – Norm.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-utils.plotting">
+<span id="utils-plotting-module"></span><h2>utils.plotting module<a class="headerlink" href="#module-utils.plotting" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.plotting.abs_error_plot">
+<span class="sig-prename descclassname"><span class="pre">utils.plotting.</span></span><span class="sig-name descname"><span class="pre">abs_error_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_dmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.plotting.abs_error_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Creates plot of an absolute error between two trajectories (state, output, …).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>numpy.ndarray</em>) – Time steps.</p></li>
+<li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Trajectory value at the time steps.</p></li>
+<li><p><strong>Y_dmd</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Approximated trajectory value at the time steps. Default <cite>None</cite>.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Label of the trajectory. Default ‘y’.</p></li>
+<li><p><strong>zoom</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to plot. Default <cite>None</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.plotting.bode_plot">
+<span class="sig-prename descclassname"><span class="pre">utils.plotting.</span></span><span class="sig-name descname"><span class="pre">bode_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lti_dmd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.plotting.bode_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Creates bode plot of two lti systems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> (<em>numpy.ndarray</em>) – Frequencies.</p></li>
+<li><p><strong>lti</strong> (<em>pymor.models.iosys.LTIModel</em>) – Original lti system.</p></li>
+<li><p><strong>lti_dmd</strong> (<em>pymor.models.iosys.LTIModel</em>) – Identified lti system.</p></li>
+<li><p><strong>i</strong> (<em>int</em><em>, </em><em>optional</em>) – If specified only the bode plot of the <cite>i</cite>,`j` input output combination is plotted. Default <cite>None</cite>.</p></li>
+<li><p><strong>j</strong> (<em>int</em><em>, </em><em>optional</em>) – If specified only the bode plot of the <cite>i</cite>,`j` input output combination is plotted. Default <cite>None</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.plotting.fig_size">
+<span class="sig-prename descclassname"><span class="pre">utils.plotting.</span></span><span class="sig-name descname"><span class="pre">fig_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width_pt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6180339887498949</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.plotting.fig_size" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the width and heights in inches for a matplotlib figure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width_pt</strong> (<em>float</em>) – Document width in points, in latex can be determined with <cite>showthe     extwidth</cite>.</p></li>
+<li><p><strong>fraction</strong> (<em>float</em><em>, </em><em>optional</em>) – The fraction of the width with which the figure will occupy. Default 1.</p></li>
+<li><p><strong>ratio</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of the figure. Default is the golden ratio.</p></li>
+<li><p><strong>subplots</strong> (<em>tuple</em><em>, </em><em>optional</em>) – The shape of subplots.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fig_width_in</strong> (<em>float</em>) – Width of the figure in inches.</p></li>
+<li><p><strong>fig_height_in</strong> (<em>float</em>) – Height of the figure in inches.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.plotting.magnitude_plot">
+<span class="sig-prename descclassname"><span class="pre">utils.plotting.</span></span><span class="sig-name descname"><span class="pre">magnitude_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lti</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.plotting.magnitude_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Creates magnitude bode plot an lti system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>w</strong> (<em>numpy.ndarray</em>) – Frequencies.</p></li>
+<li><p><strong>lti</strong> (<em>pymor.models.iosys.LTIModel</em>) – (Error) lti system.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.plotting.new_fig">
+<span class="sig-prename descclassname"><span class="pre">utils.plotting.</span></span><span class="sig-name descname"><span class="pre">new_fig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">width_pt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">420</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6180339887498949</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subplots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.plotting.new_fig" title="Permalink to this definition"></a></dt>
+<dd><p>Creates new instance of a <cite>matplotlib.pyplot.figure</cite> by using the <cite>fig_size</cite> function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width_pt</strong> (<em>float</em><em>, </em><em>optional</em>) – Document width in points, in latex can be determined with <cite>showthe     extwidth</cite>.
+Default is 420.</p></li>
+<li><p><strong>fraction</strong> (<em>float</em><em>, </em><em>optional</em>) – The fraction of the width with which the figure will occupy. Default 1.</p></li>
+<li><p><strong>ratio</strong> (<em>float</em><em>, </em><em>optional</em>) – Ratio of the figure. Default is the golden ratio.</p></li>
+<li><p><strong>subplots</strong> (<em>tuple</em><em>, </em><em>optional</em>) – The shape of subplots.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>fig</strong> – The figure.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>matplotlib.pyplot.figure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.plotting.poles_plot">
+<span class="sig-prename descclassname"><span class="pre">utils.plotting.</span></span><span class="sig-name descname"><span class="pre">poles_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lti_dmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.plotting.poles_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Creates poles bode plot of one or two lti systems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lti</strong> (<em>pymor.models.iosys.LTIModel</em>) – Original lti system.</p></li>
+<li><p><strong>lti_dmd</strong> (<em>pymor.models.iosys.LTIModel</em>) – Identified lti system.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.plotting.trajectories_plot">
+<span class="sig-prename descclassname"><span class="pre">utils.plotting.</span></span><span class="sig-name descname"><span class="pre">trajectories_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y_dmd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.plotting.trajectories_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Creates plot of a trajectory (input, state, output, …).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>numpy.ndarray</em>) – Time steps.</p></li>
+<li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Trajectory value at the time steps.</p></li>
+<li><p><strong>Y_dmd</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Approximated trajectory value at the time steps. Default <cite>None</cite>.</p></li>
+<li><p><strong>zoom</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of samples to plot. Default <cite>None</cite>.</p></li>
+<li><p><strong>label</strong> (<em>str</em><em>, </em><em>optional</em>) – Label of the trajectory. Default ‘y’.</p></li>
+<li><p><strong>train</strong> (<em>bool</em><em>, </em><em>optional</em>) – Flag if trajectory is related to the training.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-utils">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-utils" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="system.html" class="btn btn-neutral float-left" title="system package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bibliography.html" class="btn btn-neutral float-right" title="Bibliography" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Jonas Nicodemus.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

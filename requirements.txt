@@ -1,5 +1,0 @@
-numpy >= 1.22.3
-scipy >= 1.8.0
-matplotlib >= 3.5.1
-pymor >= 2021.2.1
-slycot >= 0.4.0
