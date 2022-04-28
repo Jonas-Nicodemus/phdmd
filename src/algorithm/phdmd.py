@@ -206,7 +206,7 @@ def phdmd_FGM(T, Z, J0, R0, max_iter=20, delta=1e-10):
 
         # FGM Coefficients
         alpha[i + 1] = (np.sqrt((alpha[i] ** 2 - q) ** 2 + 4 * alpha[i] ** 2) + (q - alpha[i] ** 2)) / 2
-        beta[i + 1] = alpha[i] * (1 - alpha[i]) / (alpha[i] ** 2 + alpha[i + 1])
+        beta[i] = alpha[i] * (1 - alpha[i]) / (alpha[i] ** 2 + alpha[i + 1])
 
         # Linear combination of iterates
         Q = R + beta[i] * (R - Rp)
