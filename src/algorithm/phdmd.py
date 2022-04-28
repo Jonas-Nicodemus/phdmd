@@ -179,8 +179,8 @@ def phdmd_FGM(T, Z, J0, R0, max_iter=20, delta=1e-10):
     q = mu / L
 
     beta = np.zeros(max_iter)
-    alpha = np.zeros(max_iter)
-    e = np.zeros(max_iter)
+    alpha = np.zeros(max_iter + 1)
+    e = np.zeros(max_iter + 1)
 
     # Parameters and initialization
     alpha_0 = 0.1  # Parameter of the FGM in (0,1) - can be tuned.
@@ -216,7 +216,7 @@ def phdmd_FGM(T, Z, J0, R0, max_iter=20, delta=1e-10):
 
         eps = np.linalg.norm(Jp - J, 'fro') / (np.linalg.norm(J, 'fro')) + \
               np.linalg.norm(Rp - R, 'fro') / (np.linalg.norm(R, 'fro'))
-        if eps < delta or e[i] - e[i + 1] < delta:
+        if eps < delta or np.abs(e[i + 1] - e[i]) < delta:
             e = e[:i+2]
             logging.info(f'Converged after {i + 1} iterations.')
             break
