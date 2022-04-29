@@ -20,13 +20,13 @@ the analytical minimum-norm solution. The efficiency of the proposed method is
 demonstrated with several numerical examples.
 
 Citing
-=========
-If you use this project for academic work, please consider citing our
-`Publication <https://todo/>`_:
+======
+If you use pHDMD for academic work, please consider citing our
+`publication <https://arxiv.org/abs/2204.13474>`_:
 
     R. Morandin, J. Nicodemus, and B. Unger
     Port-Hamiltonian Dynamic Mode Decomposition
-    ArXiv e-print TODO, 2022.
+    ArXiv e-print 2204.13474, 2022.
 
 
 
