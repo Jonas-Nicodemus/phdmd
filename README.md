@@ -19,6 +19,7 @@ We present a novel physics-informed system identification method to construct a 
       <a href="#installation">Installation</a>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#documentation">Documentation</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
