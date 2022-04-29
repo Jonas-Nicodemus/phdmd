@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>model package &mdash; pHDMD 1.0.0 documentation</title>
+  <title>model package &mdash; pHDMD 1.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" type="text/css" />
@@ -101,11 +101,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – Dimension of the state.</p></li>
-<li><p><strong>m</strong> (<em>int</em><em>, </em><em>optional</em>) – Dimension of the input resp. output. (only 1 or 2 are implemented)</p></li>
-<li><p><strong>m_i</strong> (<em>float</em><em>, </em><em>optional</em>) – Weight of the masses.</p></li>
-<li><p><strong>k_i</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness of the springs.</p></li>
-<li><p><strong>c_i</strong> (<em>float</em><em>, </em><em>optional</em>) – Amount of damping.</p></li>
+<li><p><strong>n</strong> (<em>int</em><em>, </em><em>optional</em>) – Dimension of the state. Default 6.</p></li>
+<li><p><strong>m</strong> (<em>int</em><em>, </em><em>optional</em>) – Dimension of the input resp. output. Default 2. (only 1 or 2 are implemented)</p></li>
+<li><p><strong>m_i</strong> (<em>float</em><em>, </em><em>optional</em>) – Weight of the masses. Default 4.</p></li>
+<li><p><strong>k_i</strong> (<em>float</em><em>, </em><em>optional</em>) – Stiffness of the springs. Default 4.</p></li>
+<li><p><strong>c_i</strong> (<em>float</em><em>, </em><em>optional</em>) – Amount of damping. Default 1.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -128,7 +128,7 @@
 <span id="model-poro-module"></span><h2>model.poro module<a class="headerlink" href="#module-model.poro" title="Permalink to this headline"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="model.poro.poro">
-<span class="sig-prename descclassname"><span class="pre">model.poro.</span></span><span class="sig-name descname"><span class="pre">poro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">320</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.poro.poro" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">model.poro.</span></span><span class="sig-name descname"><span class="pre">poro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">980</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.poro.poro" title="Permalink to this definition"></a></dt>
 <dd><p>Returns a port-Hamiltonian model of linear poroelasticity in a
 bounded Lipschitz domain as described in <span id="id2">[<a class="reference internal" href="bibliography.html#id2" title="R. Altmann, V. Mehrmann, and B. Unger. Port-Hamiltonian formulations of poroelastic network models. Math. Comput. Model. Dyn. Sys., 27(1):429–452, 2021. doi:10.1080/13873954.2021.1975137.">AltmannMehrmannUnger21</a>]</span>.</p>
 <dl class="field-list simple">

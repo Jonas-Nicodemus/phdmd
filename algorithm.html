@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>algorithm package &mdash; pHDMD 1.0.0 documentation</title>
+  <title>algorithm package &mdash; pHDMD 1.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" type="text/css" />
@@ -101,7 +101,7 @@
 <dd><p>Returns an initialization for the pHDMD algorithm by solving the related weighted minimization problem</p>
 <blockquote>
 <div><div class="math">
-\[\min_{\mathcal{J},\mathcal{R}} \|T^TZ - T^T(\mathcal{J} - \mathcal{R}) T\|_F,
+\[\min_{\mathcal{J},\mathcal{R}} \|T^TZ - T^T(\mathcal{J} - \mathcal{R}) T\|_\mathrm{F},
 \quad \mathrm{s.t.} \quad \mathcal{J}=-\mathcal{J}^T, \mathcal{R}\in\mathbb{S}^{n}_{\succeq}.
 
 \]</div>
@@ -156,7 +156,7 @@
 <p>Solve the minimization problem</p>
 <blockquote>
 <div><div class="math">
-\[\min_{\mathcal{J},\mathcal{R}} \|Z - (\mathcal{J} - \mathcal{R}) T\|_F,
+\[\min_{\mathcal{J},\mathcal{R}} \|Z - (\mathcal{J} - \mathcal{R}) T\|_\mathrm{F},
 \quad \mathrm{s.t.} \quad \mathcal{J}=-\mathcal{J}^T, \mathcal{R}\in\mathbb{S}^{n}_{\succeq}.
 
 \]</div>
@@ -218,7 +218,7 @@
 <dd><p>Solves the skew-symmetric Procrustes problem</p>
 <blockquote>
 <div><div class="math">
-\[\min_{A} \|Y - AX\|_F \quad s.t. \quad A = -A^T.
+\[\min_{A} \|Y - AX\|_\mathrm{F} \quad s.t. \quad A = -A^T.
 
 \]</div>
 </div></blockquote>
@@ -269,7 +269,7 @@
 <dd><p>Solves the symmetric positive semi-definite Procrustes problem via the fast-gradient method</p>
 <blockquote>
 <div><div class="math">
-\[\min_{A} \| Y - A X \|_F \quad s.t. \quad A\in\mathbb{S}^{n}_{\succeq}.
+\[\min_{A} \| Y - A X \|_\mathrm{F} \quad s.t. \quad A\in\mathbb{S}^{n}_{\succeq}.
 
 \]</div>
 </div></blockquote>
