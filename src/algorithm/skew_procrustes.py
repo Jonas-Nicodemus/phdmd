@@ -10,7 +10,7 @@ def skew_procrustes(X, Y, trunc_tol=1e-12, zero_tol=1e-14):
     Solves the skew-symmetric Procrustes problem
 
         .. math::
-            \min_{A} \|Y - AX\|_F \quad s.t. \quad A = -A^T.
+            \min_{A} \|Y - AX\|_\mathrm{F} \quad s.t. \quad A = -A^T.
 
     Parameters
     ----------

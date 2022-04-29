@@ -11,7 +11,7 @@ def spsd_procrustes(X, Y, A0=None, max_iter=1000):
     Solves the symmetric positive semi-definite Procrustes problem via the fast-gradient method
 
         .. math::
-            \min_{A} \| Y - A X \|_F \quad s.t. \quad A\in\mathbb{S}^{n}_{\succeq}.
+            \min_{A} \| Y - A X \|_\mathrm{F} \quad s.t. \quad A\in\mathbb{S}^{n}_{\succeq}.
 
     Parameters
     ----------

@@ -6,7 +6,7 @@ import numpy as np
 from scipy.io import loadmat
 
 
-def poro(n=320):
+def poro(n=980):
     """
     Returns a port-Hamiltonian model of linear poroelasticity in a
     bounded Lipschitz domain as described in :cite:`AltMU21`.
@@ -16,8 +16,6 @@ def poro(n=320):
     n : int, optional
         System dimension (can only be either: 320, 980, or 1805). Default = 980.
 
-    Returns
-    -------
     Returns
     -------
     E : numpy.ndarray

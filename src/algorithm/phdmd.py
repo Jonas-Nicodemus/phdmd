@@ -40,7 +40,7 @@ def phdmd(X, Y, U, delta_t, E, max_iter=20, delta=1e-10):
     Solve the minimization problem
 
         .. math::
-            \min_{\mathcal{J},\mathcal{R}} \|Z - (\mathcal{J} - \mathcal{R}) T\|_F,
+            \min_{\mathcal{J},\mathcal{R}} \|Z - (\mathcal{J} - \mathcal{R}) T\|_\mathrm{F},
             \quad \mathrm{s.t.} \quad \mathcal{J}=-\mathcal{J}^T, \mathcal{R}\in\mathbb{S}^{n}_{\succeq}.
 
     Parameters
@@ -88,7 +88,7 @@ def init_phdmd(T, Z, tol=1e-12):
     Returns an initialization for the pHDMD algorithm by solving the related weighted minimization problem
 
         .. math::
-            \min_{\mathcal{J},\mathcal{R}} \|T^TZ - T^T(\mathcal{J} - \mathcal{R}) T\|_F,
+            \min_{\mathcal{J},\mathcal{R}} \|T^TZ - T^T(\mathcal{J} - \mathcal{R}) T\|_\mathrm{F},
             \quad \mathrm{s.t.} \quad \mathcal{J}=-\mathcal{J}^T, \mathcal{R}\in\mathbb{S}^{n}_{\succeq}.
 
     Parameters

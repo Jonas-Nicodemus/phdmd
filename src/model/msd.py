@@ -10,15 +10,15 @@ def msd(n=6, m=2, m_i=4, k_i=4, c_i=1):
     Parameters
     ----------
     n : int, optional
-        Dimension of the state.
+        Dimension of the state. Default 6.
     m : int, optional
-        Dimension of the input resp. output. (only 1 or 2 are implemented)
+        Dimension of the input resp. output. Default 2. (only 1 or 2 are implemented)
     m_i : float, optional
-        Weight of the masses.
+        Weight of the masses. Default 4.
     k_i : float, optional
-        Stiffness of the springs.
+        Stiffness of the springs. Default 4.
     c_i : float, optional
-        Amount of damping.
+        Amount of damping. Default 1.
 
     Returns
     -------

@@ -22,7 +22,7 @@ copyright = '2022, Jonas Nicodemus'
 author = 'Jonas Nicodemus'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '1.1.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -93,36 +93,6 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-
-# # Material theme options (see theme.conf for more information)
-# html_theme_options = {
-#
-#     # Set the name of the project to appear in the navigation.
-#     'nav_title': 'pHDMD',
-#
-#     # Set you GA account ID to enable tracking
-#     'google_analytics_account': 'UA-XXXXX',
-#
-#     # Specify a base_url used to generate sitemap.xml. If not
-#     # specified, then no sitemap will be built.
-#     'base_url': 'https://project.github.io/project',
-#
-#     # Set the color and the accent color
-#     'color_primary': 'blue',
-#     'color_accent': 'light-blue',
-#
-#     # Set the repo location to get a badge with stats
-#     # TODO: change when release
-#     'repo_url': 'https://github.com/Jonas-Nicodemus/crispy-pancake',
-#     'repo_name': 'crispy-pancake',
-#
-#     # Visible levels of the global TOC; -1 means unlimited
-#     'globaltoc_depth': 3,
-#     # If False, expand all TOC entries
-#     'globaltoc_collapse': False,
-#     # If True, show hidden TOC entries
-#     'globaltoc_includehidden': False,
-# }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
