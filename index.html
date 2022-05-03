@@ -72,30 +72,83 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="port-hamiltonian-dynamic-mode-decomposition">
-<h1>Port-Hamiltonian Dynamic Mode Decomposition<a class="headerlink" href="#port-hamiltonian-dynamic-mode-decomposition" title="Permalink to this headline"></a></h1>
-<p>We present a novel physics-informed system identification method to construct
-a passive linear time-invariant system. In more detail, for a given quadratic
-energy functional, measurements of the input, state, and output of a system
-in the time domain, we find a realization that approximates the data well
-while guaranteeing that the energy functional satisfies a dissipation inequality.
-To this end, we use the framework of port-Hamiltonian (pH) systems and modify
-the dynamic mode decomposition to be feasible for continuous-time pH systems.
-We propose an iterative numerical method to solve the corresponding least-squares
-minimization problem. We construct an effective initialization of the algorithm
-by studying the least-squares problem in a weighted norm, for which we present
-the analytical minimum-norm solution. The efficiency of the proposed method is
-demonstrated with several numerical examples.</p>
-</section>
+  <!-- PROJECT SHIELDS -->
+<p><a class="reference external" href="https://arxiv.org/abs/2204.13474"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2204.13474-b31b1b.svg?style=for-the-badge" /></a>
+<a class="reference external" href="https://doi.org/10.5281/zenodo.6497497"><img alt="DOI" src="https://img.shields.io/badge/DOI-10.5281%20%2F%20zenodo.6497497-blue.svg?style=for-the-badge" /></a>
+<a class="reference external" href="https://github.com/Jonas-Nicodemus/phdmd/blob/main/LICENSE"><img alt="MIT License" src="https://img.shields.io/github/license/Jonas-Nicodemus/phdmd.svg?style=for-the-badge" /></a>
+<a class="reference external" href="https://linkedin.com/in/jonas-nicodemus-a34931209/"><img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&amp;logo=linkedin&amp;colorB=555" /></a></p>
+<section id="port-hamiltonian-dynamic-mode-decomposition">
+<h1><a class="reference external" href="https://arxiv.org/abs/2204.13474">Port-Hamiltonian Dynamic Mode Decomposition</a><a class="headerlink" href="#port-hamiltonian-dynamic-mode-decomposition" title="Permalink to this headline"></a></h1>
+<p>We present a novel physics-informed system identification method to construct a passive linear time-invariant system. In more detail, for a given quadratic energy functional, measurements of the input, state, and output of a system in the time domain, we find a realization that approximates the data well while guaranteeing that the energy functional satisfies a dissipation inequality. To this end, we use the framework of port-Hamiltonian (pH) systems and modify the dynamic mode decomposition to be feasible for continuous-time pH systems. We propose an iterative numerical method to solve the corresponding least-squares minimization problem. We construct an effective initialization of the algorithm by studying the least-squares problem in a weighted norm, for which we present the analytical minimum-norm solution. The efficiency of the proposed method is demonstrated with several numerical examples.</p>
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#citing">Citing</a>
+    </li>
+    <li>
+      <a href="#installation">Installation</a>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#documentation">Documentation</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 <section id="citing">
-<h1>Citing<a class="headerlink" href="#citing" title="Permalink to this headline"></a></h1>
-<p>If you use pHDMD for academic work, please consider citing our
+<h2>Citing<a class="headerlink" href="#citing" title="Permalink to this headline"></a></h2>
+<p>If you use this project for academic work, please consider citing our
 <a class="reference external" href="https://arxiv.org/abs/2204.13474">publication</a>:</p>
-<blockquote>
-<div><p>R. Morandin, J. Nicodemus, and B. Unger
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R. Morandin, J. Nicodemus, and B. Unger
 Port-Hamiltonian Dynamic Mode Decomposition
-ArXiv e-print 2204.13474, 2022.</p>
-</div></blockquote>
+ArXiv e-print 2204.13474, 2022.
+</pre></div>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
+<p>A python environment is required with at least <strong>Python 3.10</strong>.</p>
+<p>Install dependencies via <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<!-- USAGE EXAMPLES -->
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<p>The executable script <code class="docutils literal notranslate"><span class="pre">main.py</span></code> executes the <code class="docutils literal notranslate"><span class="pre">pHDMD</span></code> algorithm for the current configuration, defined in <code class="docutils literal notranslate"><span class="pre">config.py</span></code>. Both files are located in <code class="docutils literal notranslate"><span class="pre">src</span></code>.</p>
+<!-- USAGE EXAMPLES -->
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h2>
+<p>Documentation is available <a class="reference external" href="https://jonas-nicodemus.github.io/phdmd/">online</a>
+or you can build it yourself from inside the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory
+by executing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
+<p>This will generate HTML documentation in <code class="docutils literal notranslate"><span class="pre">docs/build/html</span></code>.
+It is required to have the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code> dependencies installed. This can be done by</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+</div>
+<p>within the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory.</p>
+<!-- LICENSE -->
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h2>
+<p>Distributed under the MIT License. See <code class="docutils literal notranslate"><span class="pre">LICENSE</span></code> for more information.</p>
+<!-- CONTACT -->
+</section>
+<section id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline"></a></h2>
+<p>Jonas Nicodemus - jonas.nicodemus&#64;simtech.uni-stuttgart.de</p>
+<p>Benjamin Unger - benjamin.unger&#64;simtech.uni-stuttgart.de<br />
+Riccardo Morandin - morandin&#64;math.tu-berlin.de</p>
+<p>Project Link: <a class="reference external" href="https://github.com/Jonas-Nicodemus/phdmd">https://github.com/Jonas-Nicodemus/phdmd</a></p>
+</section>
+</section>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -111,7 +164,6 @@ ArXiv e-print 2204.13474, 2022.</p>
 <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
 </ul>
 </div>
-</section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline"></a></h1>
 <ul class="simple">
