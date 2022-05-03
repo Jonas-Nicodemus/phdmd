@@ -34,6 +34,7 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
               'sphinxcontrib.katex',
               'sphinxcontrib.bibtex',
+              'myst_parser'
 ]
 
 import sphinxcontrib.katex as katex
