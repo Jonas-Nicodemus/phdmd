@@ -2,8 +2,6 @@ import logging
 
 import numpy as np
 
-from linalg.svd import svd
-
 
 def skew_procrustes(X, Y, trunc_tol=1e-12, zero_tol=1e-14):
     r"""
@@ -27,7 +25,8 @@ def skew_procrustes(X, Y, trunc_tol=1e-12, zero_tol=1e-14):
     """
 
     n = X.shape[0]
-    U, s, V = svd(X)
+    U, s, Vh = np.linalg.svd(X)
+    V = Vh.conj().T
     r = np.argmax(s / s[0] < trunc_tol)
     r = r if r > 0 else len(s)
 

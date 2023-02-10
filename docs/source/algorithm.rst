@@ -4,6 +4,22 @@ algorithm package
 Submodules
 ----------
 
+algorithm.dmd module
+--------------------
+
+.. automodule:: algorithm.dmd
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+algorithm.methods module
+------------------------
+
+.. automodule:: algorithm.methods
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 algorithm.phdmd module
 ----------------------
 

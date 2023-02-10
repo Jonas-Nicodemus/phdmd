@@ -18,7 +18,7 @@ def poro(n=980):
 
     Returns
     -------
-    E : numpy.ndarray
+    H : numpy.ndarray
         Hamiltonian matrix.
     J : numpy.ndarray
         Skew-symmetric matrix.
@@ -28,10 +28,10 @@ def poro(n=980):
         Input matrix.
     P : numpy.ndarray
         Input matrix.
-    D : numpy.ndarray
-        Feed trough matrix.
-    Q : numpy.ndarray
-        Hamiltonian matrix.
+    S : numpy.ndarray
+        Symmetric part of feed trough matrix.
+    N : numpy.ndarray
+        Skew-symmetric part of feed trough matrix.
     """
     # load matrices
     path = os.path.join(f'resources/poro-n{n}.mat')
@@ -62,7 +62,7 @@ def poro(n=980):
     # arXiv: 2012.01949, 2020.
     n = A.shape[0]
     m = M.shape[0]
-    E = np.block([
+    H = np.block([
         [Y, np.zeros((n, n + m))],
         [np.zeros((n, n)), A, np.zeros((n, m))],
         [np.zeros((m, n + n)), M]
@@ -87,7 +87,8 @@ def poro(n=980):
     ])
 
     P = np.zeros(G.shape)
-    D = np.zeros((G.shape[1], G.shape[1]))
+    S = np.zeros((G.shape[1], G.shape[1]))
+    N = np.zeros((G.shape[1], G.shape[1]))
     Q = np.eye(J.shape[0])
 
-    return E, J, R, G, P, D, Q
+    return H, J, R, G, P, S, N

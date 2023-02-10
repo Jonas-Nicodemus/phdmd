@@ -1,13 +1,13 @@
-system package
-==============
+evaluation package
+==================
 
 Submodules
 ----------
 
-system.phlti module
--------------------
+evaluation.evaluation module
+----------------------------
 
-.. automodule:: system.phlti
+.. automodule:: evaluation.evaluation
    :members:
    :undoc-members:
    :show-inheritance:
@@ -15,7 +15,7 @@ system.phlti module
 Module contents
 ---------------
 
-.. automodule:: system
+.. automodule:: evaluation
    :members:
    :undoc-members:
    :show-inheritance:

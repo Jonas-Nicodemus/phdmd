@@ -22,7 +22,7 @@ copyright = '2022, Jonas Nicodemus'
 author = 'Jonas Nicodemus'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1.0'
+release = '2.0.0'
 
 
 # -- General configuration ---------------------------------------------------

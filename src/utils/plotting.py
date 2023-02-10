@@ -70,244 +70,190 @@ def new_fig(width_pt=420, fraction=1 / 2, ratio=(5 ** .5 - 1) / 2, subplots=(1, 
     return fig
 
 
-def trajectories_plot(T, Y, Y_dmd=None, zoom=None, label='y', train=False):
+def plot(X, Y, label=None, ls=None, marker=None, c=None, markevery=None,
+         xlabel=None, ylabel=None, legend='best', grid=False, xscale='linear', yscale='linear',
+         xlim=None, ylim=None, subplots=True,
+         fraction=1, ratio=(5 ** .5 - 1) / 2, name=None):
     """
-    Creates plot of a trajectory (input, state, output, ...).
+    Plots a trajectory.
 
     Parameters
     ----------
-    T : numpy.ndarray
-        Time steps.
-    Y : numpy.ndarray
-        Trajectory value at the time steps.
-    Y_dmd : numpy.ndarray, optional
-        Approximated trajectory value at the time steps. Default `None`.
-    zoom : int, optional
-        Number of samples to plot. Default `None`.
-    label : str, optional
-        Label of the trajectory. Default 'y'.
-    train : bool, optional
-        Flag if trajectory is related to the training.
+    X : np.ndarray
+        The x-axis values.
+    Y : np.ndarray
+        The y-axis values.
+    label : np.ndarray, optional
+        The labels of the lines.
+    ls : np.ndarray, optional
+        The line styles.
+    marker : np.ndarray, optional
+        The markers.
+    c : np.ndarray, optional
+        The colors.
+    markevery : int, optional
+        The number of points to skip between markers.
+    xlabel : str, optional
+        The x-axis label.
+    ylabel : str, optional
+        The y-axis label.
+    legend : str, optional
+        The legend location.
+    grid : bool, optional
+        Whether to show the grid.
+    xscale : str, optional
+        The x-axis scale.
+    yscale : str, optional
+        The y-axis scale.
+    xlim : tuple, optional
+        The x-axis limits.
+    ylim : tuple, optional
+        The y-axis limits.
+    subplots : bool, optional
+        Whether to plot as subplots or in one plot.
+    fraction : float, optional
+        The fraction of the width with which the figure will occupy. Default 1.
+    ratio : float, optional
+        Ratio of the figure. Default is the golden ratio.
+    name : str, optional
+        The name of the figure.
     """
-    fraction = 1 / 2 if config.save_results else 1
+    if isinstance(Y, list):
+        Y = np.array(Y)
 
-    for i, y in enumerate(Y):
-        label_ = f'{label}_{i + 1}' if Y.shape[0] > 1 else f'{label}'
-        title = f'Training ${label_}$' if train else f'Testing ${label_}$'
-        match label:
-            case 'y':
-                ylabel = 'Output'
-            case 'u':
-                ylabel = 'Input'
-            case _:
-                ylabel = ''
+    if Y.ndim == 1:
+        Y = Y[np.newaxis, np.newaxis, :]
 
-        fig = new_fig(fraction=fraction)
-        ax = fig.add_subplot(1, 1, 1)
-        ax.set_title(title)
-        if zoom is not None:
-            T = T[:zoom]
-        ax.set(xlim=[np.min(T), np.max(T)])
-        ax.set(xlabel='Time (s)', ylabel=ylabel)
-        if zoom is not None:
-            ax.plot(T, Y[i, :zoom], label=f'${label_}$')
-        else:
-            ax.plot(T, Y[i], label=f'${label_}$')
+    if Y.ndim == 2:
+        Y = Y[np.newaxis, :, :]
 
-        if Y_dmd is not None:
-            dmd_label = r'\widetilde{' + label + '}'
-            dmd_ylabel = f'{dmd_label}_{i + 1}' if Y.shape[0] > 1 else f'{dmd_label}'
-            if zoom is not None:
-                ax.plot(T, Y_dmd[i,:zoom], ls='--', label=f'${dmd_ylabel}$')
-            else:
-                ax.plot(T, Y_dmd[i], ls='--', label=f'${dmd_ylabel}$')
+    if isinstance(X, list):
+        X = np.array(X)
 
-        ax.legend(loc='best')
+    if X.ndim == 1:
+        X = np.tile(X, (Y.shape[0], 1))
 
-        if config.save_results:
-            assert config.figures_path is not None and config.exp_id is not None
-            ax.set_title('')
-            fig.tight_layout()
-            filename = f'{config.exp_id}_{label_}_train' if train else f'{config.exp_id}_{label_}'
-            if zoom is not None:
-                filename += '_zoom'
-            filename += '.pgf'
-            fig.savefig(os.path.join(config.figures_path, filename))
-        else:
-            plt.show()
+    if label is None:
+        legend = False
+        label = np.empty(Y.shape[:2], dtype='object')
 
+    if isinstance(label, str):
+        label = np.array([label])
 
-def abs_error_plot(T, Y, Y_dmd, label='y', zoom=None):
-    """
-    Creates plot of an absolute error between two trajectories (state, output, ...).
+    if isinstance(label, list):
+        label = np.array(label)
 
-    Parameters
-    ----------
-    T : numpy.ndarray
-        Time steps.
-    Y : numpy.ndarray
-        Trajectory value at the time steps.
-    Y_dmd : numpy.ndarray, optional
-        Approximated trajectory value at the time steps. Default `None`.
-    label : str, optional
-        Label of the trajectory. Default 'y'.
-    zoom : int, optional
-        Number of samples to plot. Default `None`.
-    """
+    if label.ndim == 1:
+        label = label[:, np.newaxis]
+        label = np.tile(label, (1, Y.shape[1]))
+        # for i in range(label.shape[0]):
+        #     if label.shape[1] > 1:
+        #         for j in range(label.shape[1]):
+        #             label[i, j] = f'{label[i, j]}_{j+1}'
+        #     else:
+        #         label[i, 0] = f'{label[i, 0]}'
 
-    assert Y.shape == Y_dmd.shape
-    assert len(T) == Y.shape[1]
+    if ls is None:
+        ls = np.empty(Y.shape[:2], dtype='object')
 
-    fraction = 1 / 2 if config.save_results else 1
+    if isinstance(ls, list):
+        ls = np.array(ls)
 
-    for i, y in enumerate(Y):
-        if zoom is not None:
-            T = T[:zoom]
+    if ls.ndim == 1:
+        ls = ls[:, np.newaxis]
+        ls = np.tile(ls, (1, Y.shape[1]))
 
-        fig = new_fig(fraction=fraction)
-        ax = fig.add_subplot(1, 1, 1)
-        ax.set(xlim=[np.min(T), np.max(T)])
-        ax.set(xlabel='Time (s)', ylabel=f'Absolut error')
-        label_ = f'$|{label}_{i + 1} - ' + r'\widetilde{' + label + '}_' + str(i + 1) + '|$' if len(Y) > 1 \
-            else f'$|{label} - ' + r'\widetilde{' + label + '}|$'
-        if zoom is not None:
-            E = np.abs(Y[i, :zoom] - Y_dmd[i, :zoom])
-        else:
-            E = np.abs(Y[i] - Y_dmd[i])
+    if marker is None:
+        marker = np.empty(Y.shape[:2], dtype='object')
 
-        ax.semilogy(T, E, label=label_)
-        ax.legend()
+    if isinstance(marker, list):
+        marker = np.array(marker)
 
-        if config.save_results:
-            ax.set_title('')
-            fig.tight_layout()
-            filename = f'{config.exp_id}_error_{label}_{i + 1}'
-            if zoom is not None:
-                filename += '_zoom'
-            filename += '.pgf'
-            fig.savefig(os.path.join(config.figures_path, filename))
-        else:
-            plt.show()
+    if marker.ndim == 1:
+        marker = marker[:, np.newaxis]
+        marker = np.tile(marker, (1, Y.shape[1]))
 
+    if c is None:
+        c = np.empty(Y.shape[:2], dtype='object')
 
-def bode_plot(w, lti, lti_dmd, i=None, j=None):
-    """
-    Creates bode plot of two lti systems.
+    if isinstance(c, list):
+        c = np.array(c)
 
-    Parameters
-    ----------
-    w : numpy.ndarray
-        Frequencies.
-    lti : pymor.models.iosys.LTIModel
-        Original lti system.
-    lti_dmd : pymor.models.iosys.LTIModel
-        Identified lti system.
-    i : int, optional
-        If specified only the bode plot of the `i`,`j` input output combination is plotted. Default `None`.
-    j : int, optional
-        If specified only the bode plot of the `i`,`j` input output combination is plotted. Default `None`.
-    """
-    fig = new_fig(fraction=1, ratio=1)
-    ax = fig.subplots(2 * config.m, config.m, sharex=True, squeeze=False)
-    artists = lti.transfer_function.bode_plot(w, ax=ax, label='G(s)')
-    artists_dmd = lti_dmd.transfer_function.bode_plot(w, ax=ax, label='\widetilde{G}(s)', ls='--')
-    if not config.save_results:
-        plt.show()  # can only show figures when Matplotlib is not using pgf
+    if c.ndim == 1:
+        c = c[np.newaxis, :]
+        c = np.tile(c, (Y.shape[0], 1))
 
-    if i is not None and j is not None:
-        # Bode of i,j input pair
+    if c.dtype == np.float64 and c.ndim == 2:
+        c = c[:, np.newaxis, :]
+        c = np.tile(c, (1, Y.shape[1], 1))
 
-        # Magnitude
-        fig = new_fig()
-        ax = fig.add_subplot(111)
-        ax.set(xlim=[np.min(w), np.max(w)])
-        ax.loglog(*artists[2 * i, j][0].get_data(), label='$G$')
-        ax.loglog(*artists_dmd[2 * i, j][0].get_data(),
-                  ls='--', label=r'$\widetilde{G}$')
-        ax.legend()
-        ax.set_title(r'Magnitude plot of $G_{' + str(i + 1) + str(j + 1) + '}$')
-        ax.set_xlabel('Frequency (rad/s)')
-        ax.set_ylabel('Magnitude')
-
-        if config.save_results:
-            ax.set_title('')
-            fig.tight_layout()
-            fig.savefig(os.path.join(config.figures_path, f'{config.exp_id}_mag_{i + 1}_{j + 1}.pgf'))
-        else:
-            plt.show()
-
-        # Phase
-        fig = new_fig()
-        ax = fig.add_subplot(111)
-        ax.set(xlim=[np.min(w), np.max(w)])
-        ax.semilogx(*artists[2 * i + 1, j][0].get_data(), label='$G$')
-        ax.semilogx(*artists_dmd[2 * i + 1, j][0].get_data(),
-                    ls='--', label=r'$\widetilde{G}$')
-        ax.legend()
-        ax.set_title(r'Phase plot of $G_{' + str(i + 1) + str(j + 1) + '}$')
-        ax.set_xlabel('Frequency (rad/s)')
-        ax.set_ylabel('Phase (deg)')
-
-        if config.save_results:
-            ax.set_title('')
-            fig.tight_layout()
-            fig.savefig(os.path.join(config.figures_path, f'{config.exp_id}_phase_{i + 1}_{j + 1}.pgf'))
-        else:
-            plt.show()
-
-
-def magnitude_plot(w, lti):
-    """
-    Creates magnitude bode plot an lti system.
-
-    Parameters
-    ----------
-    w : numpy.ndarray
-        Frequencies.
-    lti : pymor.models.iosys.LTIModel
-        (Error) lti system.
-    """
-    fraction = 1 / 2 if config.save_results else 1
-
-    fig = new_fig(fraction=fraction)
+    fig = new_fig(width_pt=config.width_pt, fraction=fraction, ratio=ratio)
     ax = fig.add_subplot(1, 1, 1)
-    ax.set(xlim=[np.min(w), np.max(w)])
-    lti.transfer_function.mag_plot(w, ax=ax, label='Error')
-    _ = ax.legend()
-    if config.save_results:
-        ax.set_title('')
-        fig.tight_layout()
-        fig.savefig(os.path.join(config.figures_path, f'{config.exp_id}_error_mag_plot.pgf'))
-    else:
-        plt.show()
+    ax.set_title(ylabel)
+    if xlim is None:
+        xlim = [np.min(X), np.max(X)]
+    ax.set(xlim=xlim)
+
+    if ylim is not None:
+        ax.set(ylim=ylim)
+
+    ax.set(xlabel=xlabel, ylabel=ylabel)
+    ax.set_yscale(yscale)
+
+    if subplots:
+        figs = np.empty(Y.shape[1], dtype='object')
+        axes = np.empty(Y.shape[1], dtype='object')
+        figs[0] = fig
+        axes[0] = ax
+
+        for i in range(Y.shape[1]-1):
+            figs[i+1] = new_fig(width_pt=config.width_pt, fraction=fraction, ratio=ratio)
+            axes[i+1] = figs[i+1].add_subplot(1, 1, 1)
+            axes[i+1].set_title(ylabel)
+            axes[i+1].set(xlim=[np.min(X), np.max(X)])
+            axes[i+1].set(xlabel=xlabel, ylabel=ylabel)
+            axes[i+1].set_yscale(yscale)
+
+    for i in range(Y.shape[0]):
+        for j in range(Y.shape[1]):
+            if subplots:
+                axes[j].plot(X[i], Y[i, j], label=label[i, j], ls=ls[i, j],
+                             marker=marker[i,j], c=c[i, j], markevery=markevery)
+            else:
+                ax.plot(X[i], Y[i, j], label=label[i, j], ls=ls[i, j],
+                        marker=marker[i,j], c=c[i, j], markevery=markevery)
+
+    if legend is not None:
+        ax.legend(loc=legend)
+        if subplots:
+            for i in range(Y.shape[1] - 1):
+                axes[i + 1].legend(loc=legend)
+
+    if grid is True:
+        ax.grid(True)
+        if subplots:
+            for i in range(Y.shape[1] - 1):
+                axes[i + 1].grid(True)
+
+    process_fig(ax, fig, name)
 
 
-def poles_plot(lti, lti_dmd=None):
+def process_fig(ax, fig, name):
     """
-    Creates poles bode plot of one or two lti systems.
+    Shows or save the figure.
 
     Parameters
     ----------
-    lti : pymor.models.iosys.LTIModel
-        Original lti system.
-    lti_dmd : pymor.models.iosys.LTIModel
-        Identified lti system.
+    ax : matplotlib.axes.Axes
+        Axes of the figure.
+    fig : matplotlib.figure.Figure
+        Figure to be processed.
+    name : str
+        Name of the figure.
     """
-    # Eigenvalues
-    poles = lti.poles()
-    fig, ax = plt.subplots()
-    ax.plot(poles.real, poles.imag, '.', label='FOM')
-    if lti_dmd is not None:
-        poles_dmd = lti_dmd.poles()
-        ax.plot(poles_dmd.real, poles_dmd.imag, 'x', label='dmd')
-
-    _ = ax.set_title('Poles')
-    _ = ax.legend()
-    ax.set(xlabel='Re($\lambda$)', ylabel='Im($\lambda$)')
-
     if config.save_results:
         ax.set_title('')
-        fig.tight_layout()
-        fig.savefig(os.path.join(config.figures_path, f'{config.exp_id}_poles.pgf'))
+        fig.tight_layout(pad=0.5)
+        fig.savefig(os.path.join(config.plots_path, f'{name}.{config.plot_format}'))
     else:
         plt.show()

@@ -3,7 +3,7 @@ import numpy as np
 from scipy.linalg import block_diag
 
 
-def msd(n=6, m=2, m_i=4, k_i=4, c_i=1):
+def msd(n=6, m=1, m_i=4, k_i=4, c_i=1, as_ph=True):
     """
     Returns the mass-spring-damper benchmark system (cf. :cite:`GugPBV12`), as port-Hamiltonian system.
 
@@ -32,10 +32,10 @@ def msd(n=6, m=2, m_i=4, k_i=4, c_i=1):
         Input matrix.
     P : numpy.ndarray
         Input matrix.
-    D : numpy.ndarray
-        Feed trough matrix.
-    Q : numpy.ndarray
-        Hamiltonian matrix.
+    S : numpy.ndarray
+        Symmetric part of feed trough matrix.
+    N : numpy.ndarray
+        Skew-symmetric part of feed trough matrix.
     """
     assert (n % 2) == 0
 
@@ -77,8 +77,21 @@ def msd(n=6, m=2, m_i=4, k_i=4, c_i=1):
         A[2 * i - 1, 2 * i - 4] = k_i
 
     Q = np.linalg.solve(J - R, A)
+
+    if not as_ph:
+        return A, G, C, Q
+
     P = np.zeros(G.shape)
-    D = np.zeros((m, m))
+    S = np.zeros((m, m))
+    N = np.zeros((m, m))
     E = np.eye(2 * n)
 
-    return E, J, R, G, P, D, Q
+    # bring Q to left-hand side
+    H = Q.T @ E
+    J = Q.T @ J @ Q
+    R = Q.T @ R @ Q
+    G = Q.T @ G
+    P = Q.T @ P
+    Q = np.eye(J.shape[0])
+
+    return H, J, R, G, P, S, N

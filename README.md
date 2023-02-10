@@ -1,8 +1,8 @@
 <!-- PROJECT SHIELDS -->
 [![arXiv][arxiv-shield]][arxiv-url]
 [![DOI][doi-shield]][doi-url]
+[![Documentation Status][docs-shield]][docs-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 # [Port-Hamiltonian Dynamic Mode Decomposition][arxiv-url]
 
@@ -44,7 +44,10 @@ Install dependencies via `pip`:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The executable script `main.py` executes the `pHDMD` algorithm for the current configuration, defined in `config.py`. Both files are located in `src`.
+There are two executable scripts `main.py`, `reduction.py` and a configuration file `config.py` in the `src` directory. 
+- `main.py` execute the `pHDMD` algorithm for the current experiments, defined in `config.py`.
+- `reduction.py` executes the `pHDMD` algorithm with model reduction step for the MIMO Mass-Spring-Damper experiment, defined in `config.py`. 
+The algorithm is executed for different reduced orders, subsequently the H2 and Hinf errors are plotted of the reduced orders.
 
 <!-- USAGE EXAMPLES -->
 ## Documentation
@@ -79,11 +82,10 @@ Project Link: [https://github.com/Jonas-Nicodemus/phdmd][project-url]
 
 [license-shield]: https://img.shields.io/github/license/Jonas-Nicodemus/phdmd.svg?style=for-the-badge
 [license-url]: https://github.com/Jonas-Nicodemus/phdmd/blob/main/LICENSE
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/jonas-nicodemus-a34931209/
 [doi-shield]: https://img.shields.io/badge/DOI-10.5281%20%2F%20zenodo.6497497-blue.svg?style=for-the-badge
 [doi-url]: https://doi.org/10.5281/zenodo.6497497
 [arxiv-shield]: https://img.shields.io/badge/arXiv-2204.13474-b31b1b.svg?style=for-the-badge
 [arxiv-url]: https://arxiv.org/abs/2204.13474
 [project-url]:https://github.com/Jonas-Nicodemus/phdmd
+[docs-shield]:https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge
 [docs-url]:https://jonas-nicodemus.github.io/phdmd/
