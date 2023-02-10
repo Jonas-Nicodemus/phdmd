@@ -12,14 +12,6 @@ linalg.definiteness module
    :undoc-members:
    :show-inheritance:
 
-linalg.svd module
------------------
-
-.. automodule:: linalg.svd
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 linalg.symmetric module
 -----------------------
 

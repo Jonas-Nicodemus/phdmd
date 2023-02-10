@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>algorithm package &mdash; pHDMD 1.1.0 documentation</title>
+  <title>algorithm package &mdash; pHDMD 2.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" type="text/css" />
       <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -16,14 +16,16 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/katex.min.js"></script>
+        <script src="_static/auto-render.min.js"></script>
         <script src="_static/katex_autorenderer.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="linalg package" href="linalg.html" />
+    <link rel="next" title="config module" href="config.html" />
     <link rel="prev" title="API Reference" href="modules.html" /> 
 </head>
 
@@ -32,11 +34,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pHDMD
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pHDMD
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -47,15 +53,42 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">algorithm package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.phdmd">algorithm.phdmd module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.skew_procrustes">algorithm.skew_procrustes module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.spsd_procrustes">algorithm.spsd_procrustes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.dmd">algorithm.dmd module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.dmd.iodmd"><code class="docutils literal notranslate"><span class="pre">iodmd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.dmd.operator_inference"><code class="docutils literal notranslate"><span class="pre">operator_inference()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.methods">algorithm.methods module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.methods.IODMDMethod"><code class="docutils literal notranslate"><span class="pre">IODMDMethod</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.methods.Method"><code class="docutils literal notranslate"><span class="pre">Method</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.methods.OIMethod"><code class="docutils literal notranslate"><span class="pre">OIMethod</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.methods.PHDMDMethod"><code class="docutils literal notranslate"><span class="pre">PHDMDMethod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.phdmd">algorithm.phdmd module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.phdmd.phdmd"><code class="docutils literal notranslate"><span class="pre">phdmd()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.phdmd.phdmd_FGM"><code class="docutils literal notranslate"><span class="pre">phdmd_FGM()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.phdmd.phdmd_init"><code class="docutils literal notranslate"><span class="pre">phdmd_init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.skew_procrustes">algorithm.skew_procrustes module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.skew_procrustes.skew_procrustes"><code class="docutils literal notranslate"><span class="pre">skew_procrustes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-algorithm.spsd_procrustes">algorithm.spsd_procrustes module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.spsd_procrustes.init_spsd_procrustes"><code class="docutils literal notranslate"><span class="pre">init_spsd_procrustes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm.spsd_procrustes.spsd_procrustes"><code class="docutils literal notranslate"><span class="pre">spsd_procrustes()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-algorithm">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">data package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretization.html">discretization package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html">evaluation package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linalg.html">linalg package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model.html">model package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="system.html">system package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
 </ul>
 </li>
@@ -76,9 +109,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="modules.html">API Reference</a> &raquo;</li>
-      <li>algorithm package</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">API Reference</a></li>
+      <li class="breadcrumb-item active">algorithm package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/algorithm.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -89,35 +122,30 @@
            <div itemprop="articleBody">
              
   <section id="algorithm-package">
-<h1>algorithm package<a class="headerlink" href="#algorithm-package" title="Permalink to this headline"></a></h1>
+<h1>algorithm package<a class="headerlink" href="#algorithm-package" title="Permalink to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
 </section>
-<section id="module-algorithm.phdmd">
-<span id="algorithm-phdmd-module"></span><h2>algorithm.phdmd module<a class="headerlink" href="#module-algorithm.phdmd" title="Permalink to this headline"></a></h2>
+<section id="module-algorithm.dmd">
+<span id="algorithm-dmd-module"></span><h2>algorithm.dmd module<a class="headerlink" href="#module-algorithm.dmd" title="Permalink to this heading"></a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="algorithm.phdmd.init_phdmd">
-<span class="sig-prename descclassname"><span class="pre">algorithm.phdmd.</span></span><span class="sig-name descname"><span class="pre">init_phdmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.phdmd.init_phdmd" title="Permalink to this definition"></a></dt>
-<dd><p>Returns an initialization for the pHDMD algorithm by solving the related weighted minimization problem</p>
-<blockquote>
-<div><div class="math">
-\[\min_{\mathcal{J},\mathcal{R}} \|T^TZ - T^T(\mathcal{J} - \mathcal{R}) T\|_\mathrm{F},
-\quad \mathrm{s.t.} \quad \mathcal{J}=-\mathcal{J}^T, \mathcal{R}\in\mathbb{S}^{n}_{\succeq}.
-
-\]</div>
-</div></blockquote>
+<dt class="sig sig-object py" id="algorithm.dmd.iodmd">
+<span class="sig-prename descclassname"><span class="pre">algorithm.dmd.</span></span><span class="sig-name descname"><span class="pre">iodmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">X1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.dmd.iodmd" title="Permalink to this definition"></a></dt>
+<dd><p>Input Output Dynamic Mode Decomposition.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>T</strong> (<em>numpy.ndarray</em>) – Stacked data matrix</p></li>
-<li><p><strong>Z</strong> (<em>numpy.ndarray</em>) – Stacked data matrix</p></li>
-<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Zero tolerance.</p></li>
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Sequence of states.</p></li>
+<li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Sequence of outputs.</p></li>
+<li><p><strong>U</strong> (<em>numpy.ndarray</em>) – Sequence of inputs.</p></li>
+<li><p><strong>X1</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Shifted sequence of states. If not given the shifted matrix is obtained from <cite>X</cite>.</p></li>
+<li><p><strong>E</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – E matrix of the LTI system. If not given this is assumed to be the identity.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>J</strong> (<em>numpy.ndarray</em>) – Conservation of energy matrix.</p></li>
-<li><p><strong>R</strong> (<em>numpy.ndarray</em>) – Dissipation matrix.</p></li>
+<li><p><strong>A</strong> (<em>numpy.ndarray</em>) – The identified state matrix.</p></li>
+<li><p><strong>e</strong> (<em>float</em>) – The relative error of the DMD problem.</p></li>
 </ul>
 </p>
 </dd>
@@ -125,11 +153,67 @@
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="algorithm.dmd.operator_inference">
+<span class="sig-prename descclassname"><span class="pre">algorithm.dmd.</span></span><span class="sig-name descname"><span class="pre">operator_inference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.dmd.operator_inference" title="Permalink to this definition"></a></dt>
+<dd><p>Operator Inference.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Sequence of states.</p></li>
+<li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Sequence of outputs.</p></li>
+<li><p><strong>U</strong> (<em>numpy.ndarray</em>) – Sequence of inputs.</p></li>
+<li><p><strong>delta_t</strong> (<em>float</em><em>, </em><em>optional</em>) – Shifted sequence of states. If not given the shifted matrix is obtained from <cite>X</cite>.</p></li>
+<li><p><strong>E</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – E matrix of the LTI system. If not given this is assumed to be the identity.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>A</strong> (<em>numpy.ndarray</em>) – The identified state matrix.</p></li>
+<li><p><strong>e</strong> (<em>float</em>) – The relative error of the OI problem.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-algorithm.methods">
+<span id="algorithm-methods-module"></span><h2>algorithm.methods module<a class="headerlink" href="#module-algorithm.methods" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.methods.IODMDMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.methods.</span></span><span class="sig-name descname"><span class="pre">IODMDMethod</span></span><a class="headerlink" href="#algorithm.methods.IODMDMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithm.methods.Method" title="algorithm.methods.Method"><code class="xref py py-class docutils literal notranslate"><span class="pre">Method</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.methods.Method">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.methods.</span></span><span class="sig-name descname"><span class="pre">Method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.methods.Method" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class for all methods.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.methods.OIMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.methods.</span></span><span class="sig-name descname"><span class="pre">OIMethod</span></span><a class="headerlink" href="#algorithm.methods.OIMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithm.methods.Method" title="algorithm.methods.Method"><code class="xref py py-class docutils literal notranslate"><span class="pre">Method</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="algorithm.methods.PHDMDMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algorithm.methods.</span></span><span class="sig-name descname"><span class="pre">PHDMDMethod</span></span><a class="headerlink" href="#algorithm.methods.PHDMDMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algorithm.methods.Method" title="algorithm.methods.Method"><code class="xref py py-class docutils literal notranslate"><span class="pre">Method</span></code></a></p>
+</dd></dl>
+
+</section>
+<section id="module-algorithm.phdmd">
+<span id="algorithm-phdmd-module"></span><h2>algorithm.phdmd module<a class="headerlink" href="#module-algorithm.phdmd" title="Permalink to this heading"></a></h2>
+<dl class="py function">
 <dt class="sig sig-object py" id="algorithm.phdmd.phdmd">
-<span class="sig-prename descclassname"><span class="pre">algorithm.phdmd.</span></span><span class="sig-name descname"><span class="pre">phdmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">E</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.phdmd.phdmd" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">algorithm.phdmd.</span></span><span class="sig-name descname"><span class="pre">phdmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dXdt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta_t</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">H</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.phdmd.phdmd" title="Permalink to this definition"></a></dt>
 <dd><p>The pHDMD algorithm identifies a port-Hamiltonian system from state, output and input measurements.</p>
 <p>Define</p>
-<div class="math">
+<blockquote>
+<div><div class="math">
 \[\begin{align*}
     \dmdW &\vcentcolon= \tfrac{1}{\timeStep}
     \begin{bmatrix}
@@ -147,12 +231,15 @@
 \end{align*}
 
 \]</div>
+</div></blockquote>
 <p>and</p>
-<div class="math">
+<blockquote>
+<div><div class="math">
 \[\dataZ \vcentcolon= \begin{bmatrix}H \dmdW \\ -\dmdY\end{bmatrix} \quad
 \mathrm{and} \quad \dataT \vcentcolon= \begin{bmatrix}\dmdV \\ \dmdU\end{bmatrix}.
 
 \]</div>
+</div></blockquote>
 <p>Solve the minimization problem</p>
 <blockquote>
 <div><div class="math">
@@ -162,18 +249,22 @@
 \]</div>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Sequence of states.</p></li>
 <li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Sequence of outputs.</p></li>
 <li><p><strong>U</strong> (<em>numpy.ndarray</em>) – Sequence of inputs.</p></li>
-<li><p><strong>delta_t</strong> (<em>float</em>) – Time step size.</p></li>
-<li><p><strong>E</strong> (<em>numpy.ndarray</em>) – Hamiltonian matrix.</p></li>
+<li><p><strong>dXdt</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Sequence of derivatives of the state. If not given the derivatives
+are approximated via implicit midpoints, then <cite>delta_t</cite> must be given.</p></li>
+<li><p><strong>delta_t</strong> (<em>float</em><em>, </em><em>optional</em>) – Time step size. Only mandatory if <cite>dXdt</cite> is not given.</p></li>
+<li><p><strong>H</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Hamiltonian matrix. If not given, <cite>H</cite> is assumed to be the identity.</p></li>
+<li><p><strong>J0</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Initial structure matrix. If not given <cite>phdmd_init</cite> is used for the initialization of <cite>J</cite> and <cite>R</cite>.</p></li>
+<li><p><strong>R0</strong> (<em>numpy.ndarray</em>) – Initial dissipation matrix. If not given <cite>phdmd_init</cite> is used for the initialization of <cite>J</cite> and <cite>R</cite>.</p></li>
 <li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of iterations. Default 20.</p></li>
 <li><p><strong>delta</strong> (<em>float</em><em>, </em><em>optional</em>) – Convergence criteria. Default 1e-10.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>J</strong> (<em>numpy.ndarray</em>) – Conservation of energy matrix.</p></li>
 <li><p><strong>R</strong> (<em>numpy.ndarray</em>) – Dissipation matrix.</p></li>
@@ -185,10 +276,11 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="algorithm.phdmd.phdmd_FGM">
-<span class="sig-prename descclassname"><span class="pre">algorithm.phdmd.</span></span><span class="sig-name descname"><span class="pre">phdmd_FGM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.phdmd.phdmd_FGM" title="Permalink to this definition"></a></dt>
-<dd><p>Iterative algorithm to solve the pHDMD problem via a fast-gradient method.</p>
+<span class="sig-prename descclassname"><span class="pre">algorithm.phdmd.</span></span><span class="sig-name descname"><span class="pre">phdmd_FGM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">J0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.phdmd.phdmd_FGM" title="Permalink to this definition"></a></dt>
+<dd><p>Iterative algorithm to solve the pHDMD problem via a fast-gradient method
+and the analytic solution of the skew-symmetric Procrustes problem.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>T</strong> (<em>numpy.ndarray</em>) – Stacked data matrix.</p></li>
 <li><p><strong>Z</strong> (<em>numpy.ndarray</em>) – Stacked data matrix.</p></li>
@@ -198,7 +290,7 @@
 <li><p><strong>delta</strong> (<em>float</em><em>, </em><em>optional</em>) – Convergence criteria. Default 1e-10.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>J</strong> (<em>numpy.ndarray</em>) – Conservation of energy matrix.</p></li>
 <li><p><strong>R</strong> (<em>numpy.ndarray</em>) – Dissipation matrix.</p></li>
@@ -209,9 +301,38 @@
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="algorithm.phdmd.phdmd_init">
+<span class="sig-prename descclassname"><span class="pre">algorithm.phdmd.</span></span><span class="sig-name descname"><span class="pre">phdmd_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.phdmd.phdmd_init" title="Permalink to this definition"></a></dt>
+<dd><p>Returns an initialization for the pHDMD algorithm by solving the related weighted minimization problem</p>
+<blockquote>
+<div><div class="math">
+\[\min_{\mathcal{J},\mathcal{R}} \|T^TZ - T^T(\mathcal{J} - \mathcal{R}) T\|_\mathrm{F},
+\quad \mathrm{s.t.} \quad \mathcal{J}=-\mathcal{J}^T, \mathcal{R}\in\mathbb{S}^{n}_{\succeq}.
+
+\]</div>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> (<em>numpy.ndarray</em>) – Stacked data matrix</p></li>
+<li><p><strong>Z</strong> (<em>numpy.ndarray</em>) – Stacked data matrix</p></li>
+<li><p><strong>tol</strong> (<em>float</em><em>, </em><em>optional</em>) – Zero tolerance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>J</strong> (<em>numpy.ndarray</em>) – Conservation of energy matrix.</p></li>
+<li><p><strong>R</strong> (<em>numpy.ndarray</em>) – Dissipation matrix.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-algorithm.skew_procrustes">
-<span id="algorithm-skew-procrustes-module"></span><h2>algorithm.skew_procrustes module<a class="headerlink" href="#module-algorithm.skew_procrustes" title="Permalink to this headline"></a></h2>
+<span id="algorithm-skew-procrustes-module"></span><h2>algorithm.skew_procrustes module<a class="headerlink" href="#module-algorithm.skew_procrustes" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="algorithm.skew_procrustes.skew_procrustes">
 <span class="sig-prename descclassname"><span class="pre">algorithm.skew_procrustes.</span></span><span class="sig-name descname"><span class="pre">skew_procrustes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trunc_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.skew_procrustes.skew_procrustes" title="Permalink to this definition"></a></dt>
@@ -223,13 +344,13 @@
 \]</div>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Matrix.</p></li>
 <li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Matrix.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>A</strong> (<em>numpy.ndarray</em>) – The minimizer of the skew-symmetric Procrustes problem.</p></li>
 <li><p><strong>e</strong> (<em>float</em>) – Error of the skew-symmetric Procrustes problem.</p></li>
@@ -241,19 +362,19 @@
 
 </section>
 <section id="module-algorithm.spsd_procrustes">
-<span id="algorithm-spsd-procrustes-module"></span><h2>algorithm.spsd_procrustes module<a class="headerlink" href="#module-algorithm.spsd_procrustes" title="Permalink to this headline"></a></h2>
+<span id="algorithm-spsd-procrustes-module"></span><h2>algorithm.spsd_procrustes module<a class="headerlink" href="#module-algorithm.spsd_procrustes" title="Permalink to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="algorithm.spsd_procrustes.init_spsd_procrustes">
 <span class="sig-prename descclassname"><span class="pre">algorithm.spsd_procrustes.</span></span><span class="sig-name descname"><span class="pre">init_spsd_procrustes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">X</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#algorithm.spsd_procrustes.init_spsd_procrustes" title="Permalink to this definition"></a></dt>
 <dd><p>Returns an initialization of the symmetric positive semi-definite Procrustes problem.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Matrix.</p></li>
 <li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Matrix.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>A0</strong> (<em>numpy.ndarray</em>) – Initial matrix for <cite>A</cite> for the Symmetric positive-definite Procrustes problem.</p></li>
 <li><p><strong>e0</strong> (<em>float</em>) – Error for the initial matrix <cite>A</cite> of the symmetric positive-definite Procrustes problem.</p></li>
@@ -274,7 +395,7 @@
 \]</div>
 </div></blockquote>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>X</strong> (<em>numpy.ndarray</em>) – Matrix.</p></li>
 <li><p><strong>Y</strong> (<em>numpy.ndarray</em>) – Matrix.</p></li>
@@ -282,7 +403,7 @@
 <li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of iterations. Default 1000.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>A</strong> (<em>numpy.ndarray</em>) – Symmetric positive-definite matrix that (most) closely maps <cite>X</cite> to <cite>Y</cite>.</p></li>
 <li><p><strong>e</strong> (<em>float</em>) – Remaining error of the symmetric positive-definite Procrustes problem.</p></li>
@@ -294,7 +415,7 @@
 
 </section>
 <section id="module-algorithm">
-<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-algorithm" title="Permalink to this headline"></a></h2>
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-algorithm" title="Permalink to this heading"></a></h2>
 </section>
 </section>
 
@@ -303,7 +424,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modules.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="linalg.html" class="btn btn-neutral float-right" title="linalg package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="config.html" class="btn btn-neutral float-right" title="config module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>API Reference &mdash; pHDMD 1.1.0 documentation</title>
+  <title>API Reference &mdash; pHDMD 2.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" type="text/css" />
       <link rel="stylesheet" href="_static/katex-math.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -16,9 +16,11 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/katex.min.js"></script>
+        <script src="_static/auto-render.min.js"></script>
         <script src="_static/katex_autorenderer.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -32,11 +34,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> pHDMD
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pHDMD
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -46,9 +52,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="algorithm.html">algorithm package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config.html">config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html">data package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretization.html">discretization package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html">evaluation package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="linalg.html">linalg package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model.html">model package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="system.html">system package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html">utils package</a></li>
 </ul>
 </li>
@@ -69,8 +78,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>API Reference</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/modules.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -81,42 +90,125 @@
            <div itemprop="articleBody">
              
   <section id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline"></a></h1>
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="algorithm.html">algorithm package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="algorithm.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.phdmd">algorithm.phdmd module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.skew_procrustes">algorithm.skew_procrustes module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.spsd_procrustes">algorithm.spsd_procrustes module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.dmd">algorithm.dmd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.dmd.iodmd"><code class="docutils literal notranslate"><span class="pre">iodmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.dmd.operator_inference"><code class="docutils literal notranslate"><span class="pre">operator_inference()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.methods">algorithm.methods module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.methods.IODMDMethod"><code class="docutils literal notranslate"><span class="pre">IODMDMethod</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.methods.Method"><code class="docutils literal notranslate"><span class="pre">Method</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.methods.OIMethod"><code class="docutils literal notranslate"><span class="pre">OIMethod</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.methods.PHDMDMethod"><code class="docutils literal notranslate"><span class="pre">PHDMDMethod</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.phdmd">algorithm.phdmd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.phdmd.phdmd"><code class="docutils literal notranslate"><span class="pre">phdmd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.phdmd.phdmd_FGM"><code class="docutils literal notranslate"><span class="pre">phdmd_FGM()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.phdmd.phdmd_init"><code class="docutils literal notranslate"><span class="pre">phdmd_init()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.skew_procrustes">algorithm.skew_procrustes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.skew_procrustes.skew_procrustes"><code class="docutils literal notranslate"><span class="pre">skew_procrustes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm.spsd_procrustes">algorithm.spsd_procrustes module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.spsd_procrustes.init_spsd_procrustes"><code class="docutils literal notranslate"><span class="pre">init_spsd_procrustes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="algorithm.html#algorithm.spsd_procrustes.spsd_procrustes"><code class="docutils literal notranslate"><span class="pre">spsd_procrustes()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="algorithm.html#module-algorithm">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config.html#config.Experiment"><code class="docutils literal notranslate"><span class="pre">Experiment</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">data package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#module-data.generate">data.generate module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="data.html#data.generate.generate"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#data.generate.sim"><code class="docutils literal notranslate"><span class="pre">sim()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html#data.generate.sim_disc"><code class="docutils literal notranslate"><span class="pre">sim_disc()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#module-data">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="discretization.html">discretization package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="discretization.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discretization.html#module-discretization.discretization">discretization.discretization module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="discretization.html#discretization.discretization.discretize"><code class="docutils literal notranslate"><span class="pre">discretize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretization.html#discretization.discretization.explicit_euler"><code class="docutils literal notranslate"><span class="pre">explicit_euler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretization.html#discretization.discretization.explicit_midpoint"><code class="docutils literal notranslate"><span class="pre">explicit_midpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretization.html#discretization.discretization.implicit_midpoint"><code class="docutils literal notranslate"><span class="pre">implicit_midpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="discretization.html#discretization.discretization.scipy_solve_ivp"><code class="docutils literal notranslate"><span class="pre">scipy_solve_ivp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="discretization.html#module-discretization">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaluation.html">evaluation package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html#module-evaluation.evaluation">evaluation.evaluation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#evaluation.evaluation.evaluate"><code class="docutils literal notranslate"><span class="pre">evaluate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="evaluation.html#evaluation.evaluation.h_norm"><code class="docutils literal notranslate"><span class="pre">h_norm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="evaluation.html#module-evaluation">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="linalg.html">linalg package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="linalg.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linalg.html#module-linalg.definiteness">linalg.definiteness module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linalg.html#module-linalg.svd">linalg.svd module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linalg.html#module-linalg.symmetric">linalg.symmetric module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html#module-linalg.definiteness">linalg.definiteness module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linalg.html#linalg.definiteness.is_spsd"><code class="docutils literal notranslate"><span class="pre">is_spsd()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="linalg.html#linalg.definiteness.project_spsd"><code class="docutils literal notranslate"><span class="pre">project_spsd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="linalg.html#module-linalg.symmetric">linalg.symmetric module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="linalg.html#linalg.symmetric.is_skew"><code class="docutils literal notranslate"><span class="pre">is_skew()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="linalg.html#linalg.symmetric.is_sym"><code class="docutils literal notranslate"><span class="pre">is_sym()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="linalg.html#linalg.symmetric.skew"><code class="docutils literal notranslate"><span class="pre">skew()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="linalg.html#linalg.symmetric.sym"><code class="docutils literal notranslate"><span class="pre">sym()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="linalg.html#linalg.symmetric.toeplitz"><code class="docutils literal notranslate"><span class="pre">toeplitz()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="linalg.html#module-linalg">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="model.html">model package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="model.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model.html#module-model.msd">model.msd module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model.html#module-model.poro">model.poro module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="model.html#module-model">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#module-model.msd">model.msd module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#model.msd.msd"><code class="docutils literal notranslate"><span class="pre">msd()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="system.html">system package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="system.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="system.html#module-system.phlti">system.phlti module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="system.html#module-system">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#module-model.poro">model.poro module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="model.html#model.poro.poro"><code class="docutils literal notranslate"><span class="pre">poro()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="model.html#module-model">Module contents</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="utils.html">utils package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="utils.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.norm">utils.norm module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.plotting">utils.plotting module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.plotting">utils.plotting module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.plotting.fig_size"><code class="docutils literal notranslate"><span class="pre">fig_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.plotting.new_fig"><code class="docutils literal notranslate"><span class="pre">new_fig()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.plotting.plot"><code class="docutils literal notranslate"><span class="pre">plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.plotting.process_fig"><code class="docutils literal notranslate"><span class="pre">process_fig()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils.system">utils.system module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.system.to_lti"><code class="docutils literal notranslate"><span class="pre">to_lti()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.system.to_phlti"><code class="docutils literal notranslate"><span class="pre">to_phlti()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="utils.html#utils.system.unstack"><code class="docutils literal notranslate"><span class="pre">unstack()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="utils.html#module-utils">Module contents</a></li>
 </ul>
 </li>
