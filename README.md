@@ -31,7 +31,7 @@ If you use this project for academic work, please consider citing our
 
     R. Morandin, J. Nicodemus, and B. Unger
     Port-Hamiltonian Dynamic Mode Decomposition
-    SIAM Journal on Scientific Computing 2023 45:4, A1690-A1710
+    SIAM J. Sci. Comput., 45:A1690–A1710, 2023
 
 ## Installation
 A python environment is required with at least **Python 3.10**.
